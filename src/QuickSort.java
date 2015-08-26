@@ -1,5 +1,5 @@
 /**
- * Created by mattsguerri on 6/18/15.
+ * Created by Esquire At Large on 6/18/15.
  */
 public class QuickSort {
     public static void Do()
@@ -24,7 +24,18 @@ public class QuickSort {
     }
 
     private static void Quick(int[] arr, int s, int e) {
-        int pivot = arr[(s + (e - s)) / 2];
+        int pivot = arr[(s + (e)) / 2];
+
+        System.out.println();
+        for(int x = s; x < e; x++)
+        {
+            if(arr[x] == pivot)
+                System.out.print("[" + arr[x] + "] ");
+            else
+                System.out.print(arr[x] + " ");
+        }
+        System.out.println();
+
 
         int i = s, j = e;
         while(i <= j)
@@ -38,12 +49,18 @@ public class QuickSort {
                 int tmp = arr[j];
                 arr[j] = arr[i];
                 arr[i] = tmp;
+                i++; //Just because we've found a swap doesn't mean we can't continue incrementing.
+                j--;
             }
         }
-        if(s < j)
+        if(s < j) {
+            System.out.println("Left");
             Quick(arr, s, j);
-        if(i < e)
+        }
+        if(i < e) {
+            System.out.println("Right");
             Quick(arr, i, e);
+        }
 
     }
 }
