@@ -12,5 +12,8 @@ public class main {
 
         System.out.println("Quick");
         QuickSort.Do();
+
+        System.out.println("Merge");
+        MergeSort.Do();
     }
 }
